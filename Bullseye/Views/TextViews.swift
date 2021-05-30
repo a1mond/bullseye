@@ -36,6 +36,7 @@ struct SliderLabelText: View {
         Text(text.uppercased())
             .bold()
             .foregroundColor(Color("TextColor"))
+            .frame(width: 35.0)
     }
 }
 struct LabelText: View {

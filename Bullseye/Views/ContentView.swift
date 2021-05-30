@@ -58,7 +58,7 @@ struct HitMeButton: View {
         .cornerRadius(21.0)
         .overlay(
             RoundedRectangle(cornerRadius: 21.0)
-                .strokeBorder(lineWidth: 1.5)
+                .strokeBorder(lineWidth: 0.8)
         )
         .alert(isPresented: $alertIsVisible, content: {
             let rounded: Int = Int(sliderValue.rounded())
