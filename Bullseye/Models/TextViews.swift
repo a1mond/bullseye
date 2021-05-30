@@ -43,6 +43,7 @@ struct TextViews_Previews: PreviewProvider {
         VStack {
             InstructionText(text: "Put the bullseye as close as you can to")
             BigNumberText(text: "10")
+            SliderLabelText(text: "10")
         }
     }
 }

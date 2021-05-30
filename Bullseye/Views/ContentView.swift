@@ -34,7 +34,7 @@ struct InstructionView: View {
             BigNumberText(text: String(game.target))
                 .padding(.top, 3.0)
         }
-
+        
     }
 }
 
@@ -46,7 +46,7 @@ struct HitMeButton: View {
         Button(action: {
             alertIsVisible = true
         }) {
-            Text("submit".uppercased()).bold().font(.title3)
+            Text("hit me".uppercased()).bold().font(.title3)
         }
         .padding(20.0)
         .background(
@@ -57,6 +57,10 @@ struct HitMeButton: View {
         )
         .foregroundColor(Color.white)
         .cornerRadius(21.0)
+        .overlay(
+            RoundedRectangle(cornerRadius: 21.0)
+                .strokeBorder(lineWidth: 1.5)
+        )
         .alert(isPresented: $alertIsVisible, content: {
             let rounded: Int = Int(sliderValue.rounded())
             return Alert(title: Text("Nice!"),
