@@ -9,15 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var alertIsVisible = false
-    @State private var sliderValue = 51.0
+    @State private var sliderValue = 50.5
     @State private var game = Game()
     var body: some View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                InstructionView(game: $game)
+                InstructionView(game: $game).padding(.bottom, alertIsVisible ? CGFloat(0) : CGFloat(100.0))
+                if alertIsVisible {
+                    PointsView(isPresented: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                } else {
+                    HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                }
+            }
+            if !alertIsVisible {
                 SliderView(sliderValue: $sliderValue)
-                HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
             }
         }
     }
@@ -43,7 +49,7 @@ struct HitMeButton: View {
     var body: some View { 
         Button(action: {
             alertIsVisible = true
-             
+            
         }) {
             Text("hit me".uppercased()).bold().font(.title3)
         }
