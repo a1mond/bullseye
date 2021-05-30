@@ -15,6 +15,7 @@
 		822D66152662D6A70024A582 /* BullseyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D66142662D6A70024A582 /* BullseyeTests.swift */; };
 		822D661D266301110024A582 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D661C266301110024A582 /* TextViews.swift */; };
 		822D661F26630EA00024A582 /* RoundViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D661E26630EA00024A582 /* RoundViews.swift */; };
+		822D6621266316DF0024A582 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D6620266316DF0024A582 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		822D66162662D6A70024A582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		822D661C266301110024A582 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		822D661E26630EA00024A582 /* RoundViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViews.swift; sourceTree = "<group>"; };
+		822D6620266316DF0024A582 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				822D661C266301110024A582 /* TextViews.swift */,
 				820BB2C526613E1F0026F6EC /* ContentView.swift */,
 				822D661E26630EA00024A582 /* RoundViews.swift */,
+				822D6620266316DF0024A582 /* BackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822D6621266316DF0024A582 /* BackgroundView.swift in Sources */,
 				822D661F26630EA00024A582 /* RoundViews.swift in Sources */,
 				820BB2C626613E1F0026F6EC /* ContentView.swift in Sources */,
 				822D661D266301110024A582 /* TextViews.swift in Sources */,

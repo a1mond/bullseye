@@ -17,8 +17,7 @@ struct RoundedImageViewStroked: View {
             .frame(width: 56.0, height: 56.0)
             .overlay(
                 Circle()
-                    .strokeBorder(lineWidth: 1.5)
-                    .foregroundColor(Color("ButtonStrokeColor"))
+                    .strokeBorder(Color("ButtonStrokeColor"), lineWidth: 1.5)
             )
     }
 }
@@ -38,14 +37,31 @@ struct RoundedImageViewFilled : View {
     }
 }
 
+struct RoundRectTextView: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .bold()
+            .foregroundColor(Color("TextColor"))
+            .font(.title2)
+            .frame(width: 68.0, height: 57.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 21.0)
+                    .strokeBorder(lineWidth: 1.5)
+                    .foregroundColor(Color("ButtonStrokeColor"))
+            )
+    }
+}
+
 struct RoundViews_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 10) {
             RoundedImageViewStroked(systemName: "arrow.counterclockwise")
-            RoundedImageViewStroked(systemName: "list.dash")
+            RoundedImageViewFilled(systemName: "list.dash")
+            RoundRectTextView(text: "999")
         }
         VStack(spacing: 10) {
-            RoundedImageViewFilled(systemName: "arrow.counterclockwise")
+            RoundedImageViewStroked(systemName: "arrow.counterclockwise")
                 .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
             RoundedImageViewFilled(systemName: "list.dash")
                 .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)

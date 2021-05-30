@@ -33,9 +33,19 @@ struct BigNumberText: View {
 struct SliderLabelText: View {
     var text: String
     var body: some View {
-        Text(text)
+        Text(text.uppercased())
             .bold()
             .foregroundColor(Color("TextColor"))
+    }
+}
+struct LabelText: View {
+    var text: String
+    var body: some View {
+        Text(text.uppercased())
+            .bold()
+            .kerning(1.5)
+            .font(.caption)
+            
     }
 }
 struct TextViews_Previews: PreviewProvider {
@@ -44,6 +54,7 @@ struct TextViews_Previews: PreviewProvider {
             InstructionText(text: "Put the bullseye as close as you can to")
             BigNumberText(text: "10")
             SliderLabelText(text: "10")
+            LabelText(text: "label")
         }
     }
 }
