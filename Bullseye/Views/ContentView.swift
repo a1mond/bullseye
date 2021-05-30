@@ -18,12 +18,15 @@ struct ContentView: View {
                 InstructionView(game: $game).padding(.bottom, alertIsVisible ? CGFloat(0) : CGFloat(100.0))
                 if alertIsVisible {
                     PointsView(isPresented: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
                 } else {
                     HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
                 }
             }
             if !alertIsVisible {
                 SliderView(sliderValue: $sliderValue)
+                    .transition(.scale)
             }
         }
     }
@@ -48,8 +51,9 @@ struct HitMeButton: View {
     @Binding var game: Game
     var body: some View { 
         Button(action: {
-            alertIsVisible = true
-            
+            withAnimation {
+                alertIsVisible = true
+            }
         }) {
             Text("hit me".uppercased()).bold().font(.title3)
         }
