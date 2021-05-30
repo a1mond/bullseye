@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var alertIsVisible = false
-    @State private var sliderValue = 50.0
+    @State private var sliderValue = 51.0
     @State private var game = Game()
     var body: some View {
         ZStack {
@@ -31,7 +31,6 @@ struct InstructionView: View {
                 .padding(.leading, 30.0)
                 .padding(.trailing, 30.0)
             BigNumberText(text: String(game.target))
-                .padding(.top, 3.0)
         }
         
     }
