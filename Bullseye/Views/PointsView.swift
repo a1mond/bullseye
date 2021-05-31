@@ -31,7 +31,7 @@ struct PointsView: View {
         .padding()
         .frame(maxWidth: 300)
         .background(Color("BackgroundColor"))
-        .cornerRadius(Constants.General.roundRectCorcerRadius)
+        .cornerRadius(Constants.General.roundRectCornerRadius)
         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: 5)
         .transition(.scale)
     }

@@ -65,9 +65,9 @@ struct HitMeButton: View {
             }
         )
         .foregroundColor(Color.white)
-        .cornerRadius(Constants.General.roundRectCorcerRadius)
+        .cornerRadius(Constants.General.roundRectCornerRadius)
         .overlay(
-            RoundedRectangle(cornerRadius: Constants.General.roundRectCorcerRadius)
+            RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
                 .strokeBorder(lineWidth: Constants.General.strokeWidth)
         )
         .alert(isPresented: $alertIsVisible, content: {
