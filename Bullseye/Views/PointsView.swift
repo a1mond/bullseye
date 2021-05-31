@@ -15,7 +15,7 @@ struct PointsView: View {
     var body: some View {
         let rounded = Int(sliderValue.rounded())
         let points = game.points(sliderValue: rounded)
-        VStack(spacing: 10) {
+        VStack(spacing: Constants.General.spacing) {
             InstructionText(text: "the slider's value is")
             BigNumberText(text: String(rounded))
             BodyText(text: "You've scored \(points) Points\nGood job!")

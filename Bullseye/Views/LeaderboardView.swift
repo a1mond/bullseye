@@ -9,7 +9,15 @@ import SwiftUI
 
 struct LeaderboardView: View {
     var body: some View {
-        RowView(index: 1, score: 1000, date: Date())
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            VStack(spacing: Constants.General.spacing){
+                HeaderView()
+                LabelView()
+                RowView(index: 1, score: 1000, date: Date())
+            }
+        }
     }
 }
 
@@ -32,7 +40,39 @@ struct RowView: View {
             RoundedRectangle(cornerRadius: .infinity)
                 .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
         )
-        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth )
+        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
+        .padding(.horizontal)
+    }
+}
+
+struct HeaderView: View {
+    var body: some View {
+        ZStack {
+            BigBoldText(text: "leaderboard")
+            HStack {
+                Spacer()
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    RoundedImageViewFilled(systemName: "xmark")
+                        .padding(.trailing)
+                }
+            }
+        }
+    }
+}
+
+struct LabelView: View {
+    var body: some View {
+        HStack {
+            Spacer()
+                .frame(width: Constants.General.roundedViewLength)
+            Spacer()
+            LabelText(text: "score")
+                .frame(width: Constants.Leaderboard.leaderboardScoreColWidth)
+            Spacer()
+            LabelText(text: "time")
+                .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
+        }
+        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
         .padding(.horizontal)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 enum Constants {
     enum General {
+        public static let spacing = CGFloat(10.0)
         public static let strokeWidth = CGFloat(2.0)
         public static let roundedViewLength = CGFloat(56.0)
         public static let roundRectViewWidth = CGFloat(68.0)

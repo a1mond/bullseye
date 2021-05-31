@@ -67,13 +67,13 @@ struct RoundRectTextView: View {
 
 struct RoundViews_Previews: PreviewProvider {
     static var previews: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: Constants.General.spacing) {
             RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             RoundedImageViewFilled(systemName: "list.dash")
             RoundRectTextView(text: "999")
             RoundedTextView(text: "1")
         }
-        VStack(spacing: 10) {
+        VStack(spacing: Constants.General.spacing) {
             RoundedImageViewStroked(systemName: "arrow.counterclockwise")
                 .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
             RoundedImageViewFilled(systemName: "list.dash")
