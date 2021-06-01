@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    @Binding var leaderboardIsShowing: Bool
+    
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: Constants.General.spacing){
-                HeaderView()
+                HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
                 LabelView()
                 RowView(index: 1, score: 1000, date: Date())
             }
@@ -46,12 +48,25 @@ struct RowView: View {
 }
 
 struct HeaderView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Binding var leaderboardIsShowing: Bool
+    
     var body: some View {
         ZStack {
-            BigBoldText(text: "leaderboard")
+            HStack {
+                if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+                    BigBoldText(text: "leaderboard").padding(.leading, 20.0)
+                    Spacer()
+                } else {
+                    BigBoldText(text: "leaderboard")
+                }
+            }
             HStack {
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    leaderboardIsShowing = false
+                }) {
                     RoundedImageViewFilled(systemName: "xmark")
                         .padding(.trailing)
                 }
@@ -78,13 +93,14 @@ struct LabelView: View {
 }
 
 struct LeaderboardView_Previews: PreviewProvider {
+    static private var lis = Binding.constant(false)
     static var previews: some View {
-        LeaderboardView()
-        LeaderboardView()
+        LeaderboardView(leaderboardIsShowing: lis)
+        LeaderboardView(leaderboardIsShowing: lis)
             .previewLayout(.fixed(width: 568, height: 320))
-        LeaderboardView()
+        LeaderboardView(leaderboardIsShowing: lis)
             .preferredColorScheme(.dark)
-        LeaderboardView()
+        LeaderboardView(leaderboardIsShowing: lis)
             .previewLayout(.fixed(width: 568, height: 320))
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
