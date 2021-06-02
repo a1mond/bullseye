@@ -9,15 +9,22 @@ import SwiftUI
 
 struct LeaderboardView: View {
     @Binding var leaderboardIsShowing: Bool
+    @Binding var game: Game
     
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
-            VStack(spacing: Constants.General.spacing){
-                HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
-                LabelView()
-                RowView(index: 1, score: 1000, date: Date())
+            ScrollView {
+                VStack(spacing: Constants.General.spacing) {
+                    HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
+                        .padding(.top)
+                    
+                    LabelView()
+                    ForEach(game.leaderboardEntries.indices) { i in
+                        RowView(index: i + 1, score: game.leaderboardEntries[i].score, date: game.leaderboardEntries[i].date)
+                    }
+                }
             }
         }
     }
@@ -94,13 +101,15 @@ struct LabelView: View {
 
 struct LeaderboardView_Previews: PreviewProvider {
     static private var lis = Binding.constant(false)
+    static private var game = Binding.constant(Game(loadTestData: true))
+    
     static var previews: some View {
-        LeaderboardView(leaderboardIsShowing: lis)
-        LeaderboardView(leaderboardIsShowing: lis)
+        LeaderboardView(leaderboardIsShowing: lis, game: game)
+        LeaderboardView(leaderboardIsShowing: lis, game: game)
             .previewLayout(.fixed(width: 568, height: 320))
-        LeaderboardView(leaderboardIsShowing: lis)
+        LeaderboardView(leaderboardIsShowing: lis, game: game)
             .preferredColorScheme(.dark)
-        LeaderboardView(leaderboardIsShowing: lis)
+        LeaderboardView(leaderboardIsShowing: lis, game: game)
             .previewLayout(.fixed(width: 568, height: 320))
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }

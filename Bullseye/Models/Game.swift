@@ -18,6 +18,17 @@ struct Game {
     var round = 1
     var leaderboardEntries: [LeaderboardEntry] = []
     
+    init(loadTestData: Bool = false) {
+        if loadTestData {
+            leaderboardEntries.append(LeaderboardEntry(score: 100, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 200, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 150, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 50, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 75, date: Date()))
+            leaderboardEntries.sort { $0.score > $1.score }
+        }
+    }
+    
     func points(sliderValue: Int) -> Int {
         let difference = abs(sliderValue - target)
         if difference == 0 {
