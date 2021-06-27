@@ -62,8 +62,7 @@ struct RingsView: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            Color("BackgroundColor").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             ZStack {
                 ForEach(1..<6) { ring in
                     let size = CGFloat(ring * 100)
